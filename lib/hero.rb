@@ -20,4 +20,8 @@ class Hero
   def gain_gold(amount)
     @gold += amount
   end
+
+  def gain_exp(amount)
+    @exp += amount
+  end
 end
