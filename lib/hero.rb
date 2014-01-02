@@ -12,4 +12,8 @@ class Hero
   def activate_action(action_name, target)
     actions[action_name].activate(target)
   end
+
+  def damage(hit)
+    @health -= hit
+  end
 end

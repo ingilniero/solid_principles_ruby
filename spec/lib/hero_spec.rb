@@ -45,4 +45,15 @@ describe Hero do
       hero.activate_action(:attack, monster)
     end
   end
+
+  describe '#damage' do
+    before do
+      hero.damage(3)
+      hero.damage(2)
+    end
+
+    it 'decrease health' do
+      expect(hero.health).to eq 5
+    end
+  end
 end
