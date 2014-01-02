@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Monster do
-  let(:monster) { Monster.new toughness: 2, damage: 4 }
+  let(:monster) { Monster.new toughness: 2, damage: 4, notice: 2 }
 
    it 'has toughness' do
      expect(monster.toughness).to eq 2
@@ -9,6 +9,10 @@ describe Monster do
 
    it 'has damage' do
      expect(monster.damage).to eq 4
+   end
+
+   it 'has notice' do
+     expect(monster.notice).to eq 2
    end
 
    describe '#dead?' do
