@@ -24,6 +24,8 @@ describe Hero do
   end
 
   describe '#attack' do
+    let(:monster) { double('monster', toughness: 2) }
+
     context 'when the hero attacks sucessfuly' do
       it { expect(subject.attack(monster)).to be_true }
     end
