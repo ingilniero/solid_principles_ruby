@@ -1,13 +1,28 @@
 class Hero
-  attr_reader :health, :strength
+  attr_reader :health, :strength, :stealth
 
-  def initialize(health, strength)
+  def initialize(health, strength, stealth)
     @health = health
     @strength = strength
+    @stealth = stealth
+    @fled = false
   end
 
   def dead?
     @health <= 0
+  end
+
+  def fled?
+    @fled
+  end
+
+  def flee(monster)
+    dice = []
+    stealth.times { dice << 1 + rand(6) }
+    success = dice.count {|die| die > 4 }
+    if success >= monster.notice
+      @fled = true
+    end
   end
 
   def attack(monster)
@@ -25,11 +40,12 @@ class Hero
 end
 
 class Monster
-  attr_reader :toughness, :damage
+  attr_reader :toughness, :damage, :notice
 
-  def initialize(toughness, damage)
+  def initialize(toughness, damage, notice)
     @toughness = toughness
     @damage = damage
+    @notice = notice
   end
 end
 
