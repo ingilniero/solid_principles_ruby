@@ -14,4 +14,10 @@ describe Hero do
       expect(hero.health).to eq 10
     end
   end
+
+  describe 'custom attributes' do
+    let(:hero) { Hero.new(strength: 4) }
+
+    it { expect(hero.strength).to eq 4}
+  end
 end
