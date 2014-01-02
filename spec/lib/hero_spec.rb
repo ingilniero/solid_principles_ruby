@@ -3,10 +3,9 @@ require_relative '../../lib/hero'
 
 describe Hero do
 
-  let(:dicepool) { double('dicepool') }
   let(:attack_action) { double('attack') }
   let(:actions) { { attack: attack_action } }
-  let(:hero) { Hero.new dicepool: dicepool, actions: actions }
+  let(:hero) { Hero.new actions: actions }
 
   describe 'default attributes' do
 
@@ -20,7 +19,7 @@ describe Hero do
   end
 
   describe 'custom attributes' do
-    let(:hero) { Hero.new(strength: 4, health: 8, dicepool: dicepool) }
+    let(:hero) { Hero.new(strength: 4, health: 8) }
 
     it { expect(hero.strength).to eq 4}
 

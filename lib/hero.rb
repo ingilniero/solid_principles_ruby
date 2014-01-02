@@ -4,7 +4,6 @@ class Hero
   def initialize(attr = {})
     @strength = attr.fetch(:strength, 3)
     @health = attr.fetch(:health, 10)
-    @dicepool = attr.fetch(:dicepool)
     @actions = attr.fetch(:actions, {})
   end
 
