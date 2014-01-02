@@ -17,6 +17,7 @@ class FleeAction
   private
 
   def success(target)
+    owner.flee
   end
 
   def failure(target)
