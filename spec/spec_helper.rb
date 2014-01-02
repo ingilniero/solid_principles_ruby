@@ -1,6 +1,7 @@
 require_relative '../lib/hero'
 require_relative '../lib/attack_action'
 require_relative '../lib/dicepool'
+require_relative '../lib/monster'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
