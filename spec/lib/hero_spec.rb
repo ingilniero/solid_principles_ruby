@@ -22,4 +22,10 @@ describe Hero do
 
     it { expect(hero.health).to eq 8 }
   end
+
+  describe '#attack' do
+    context 'when the hero attacks sucessfuly' do
+      it { expect(subject.attack(monster)).to be_true }
+    end
+  end
 end
