@@ -9,5 +9,13 @@ describe Dicepool do
 
       it { expect(subject.skill_check(3,2)).to be_true }
     end
+
+    context 'when number of success is less than difficulty' do
+      before do
+        subject.stub(:roll_die).and_return(2)
+      end
+
+      it { expect(subject.skill_check(3, 3)).to be_false }
+    end
   end
 end
