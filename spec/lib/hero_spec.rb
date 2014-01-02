@@ -4,7 +4,9 @@ require_relative '../../lib/hero'
 describe Hero do
 
   let(:dicepool) { double('dicepool') }
-  let(:hero) { Hero.new dicepool: dicepool }
+  let(:attack_action) { double('attack') }
+  let(:actions) { { attack: attack_action } }
+  let(:hero) { Hero.new dicepool: dicepool, actions: actions }
 
   describe 'default attributes' do
 
@@ -26,18 +28,9 @@ describe Hero do
   end
 
   describe '#attack' do
-    let(:monster) { double('monster', toughness: 2) }
 
-    context 'when the hero attacks sucessfuly' do
-      before { dicepool.stub(:skill_check).and_return(true) }
-
-      it { expect(hero.attack(monster)).to be_true }
-    end
-
-    context 'when the hero attack fails' do
-      before { dicepool.stub(:skill_check).and_return(false) }
-
-      it { expect(hero.attack(monster)).to be_false }
+    it 'has attack action' do
+      expect(hero.actions[:attack]).to eq(attack_action)
     end
   end
 end
