@@ -11,6 +11,15 @@ class Hero
   end
 end
 
+class Monster
+  attr_reader :toughness, :damage
+
+  def initialize(toughness, damage)
+    @toughness = toughness
+    @damage = damage
+  end
+end
+
 hero = Hero.new 10, 3
 monster = Monster.new 2, 4
 
