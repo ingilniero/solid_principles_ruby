@@ -56,4 +56,9 @@ describe Hero do
       expect(hero.health).to eq 5
     end
   end
+
+  describe '#gain_gold' do
+    before { hero.gain_gold(10) }
+    it { expect(hero.gold).to eq 10 }
+  end
 end
