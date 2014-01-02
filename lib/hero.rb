@@ -8,6 +8,7 @@ class Hero
     @actions  = attr.fetch(:actions, {})
     @gold     = 0
     @exp      = 0
+    @fled     = false
   end
 
   def activate_action(action_name, target)
@@ -24,5 +25,13 @@ class Hero
 
   def gain_exp(amount)
     @exp += amount
+  end
+
+  def flee
+    @fled = true
+  end
+
+  def fled?
+    @fled
   end
 end

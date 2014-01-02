@@ -78,4 +78,22 @@ describe Hero do
       expect(hero.exp).to eq 100
     end
   end
+
+  describe '#flee' do
+    before { hero.flee }
+    it 'changes the flee state of the hero' do
+      expect(hero.fled?).to be_true
+    end
+  end
+
+  describe '#fled?' do
+    context 'when the hero flees from battle' do
+      before { hero.flee }
+      it { expect(hero.fled?).to be_true }
+    end
+
+    context 'hen the hero doesn\'t flee' do
+      it { expect(hero.fled?).to be_false }
+    end
+  end
 end
