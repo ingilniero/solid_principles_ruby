@@ -9,6 +9,19 @@ class Hero
   def dead?
     @health <= 0
   end
+
+  def attack(monster)
+    dice = []
+    strength.times { dice << 1 + rand(6) }
+    success = dice.count { |die| die > 4 }
+
+    if success >= monster.toughness
+      return true
+    else
+      @health -= monster.damage
+      return false
+    end
+  end
 end
 
 class Monster
