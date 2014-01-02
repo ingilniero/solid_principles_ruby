@@ -10,4 +10,10 @@ describe Monster do
    it 'has damage' do
      expect(monster.damage).to eq 4
    end
+
+   describe '#dead?' do
+     it 'checks if the monster is dead' do
+       expect(monster.dead?).to be_false
+     end
+   end
 end

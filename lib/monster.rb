@@ -4,5 +4,10 @@ class Monster
   def initialize(attr = {})
     @toughness = attr.fetch(:toughness, 2)
     @damage = attr.fetch(:damage, 2)
+    @dead = false
+  end
+
+  def dead?
+    @dead
   end
 end
