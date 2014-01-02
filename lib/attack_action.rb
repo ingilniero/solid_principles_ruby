@@ -1,13 +1,16 @@
 class AttackAction
-  attr_reader :owner, :dicepool
+  attr_reader :owner, :dicepool, :attribute, :difficulty
 
   def initialize(owner, dicepool)
     @owner = owner
     @dicepool = dicepool
+
+    @attribute = :strength
+    @difficulty = :toughness
   end
 
   def activate(target)
-    if dicepool.skill_check(owner.strength, target.toughness)
+    if dicepool.skill_check(owner.send(attribute), target.send(difficulty))
       success(target)
     else
       failure(target)
