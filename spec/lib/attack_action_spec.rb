@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AttackAction do
-  let(:hero) { double('hero', strength: 3) }
+  let(:hero) { double('hero', strength: 3, gain_exp: nil, gain_gold: nil) }
   let(:dicepool) { double('dicepool') }
   let(:monster) { double('monster', toughness: 2, kill: nil) }
 
@@ -38,7 +38,10 @@ describe AttackAction do
         subject.activate(monster)
       end
 
-      it 'rewards owner with gold'
+      it 'rewards owner with gold' do
+        hero.should_receive(:gain_gold)
+        subject.activate(monster)
+      end
     end
 
     context 'failure' do

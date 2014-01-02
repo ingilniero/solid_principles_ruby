@@ -10,6 +10,7 @@ class AttackAction
     if dicepool.skill_check(owner.strength, target.toughness)
       target.kill
       owner.gain_exp
+      owner.gain_gold
     end
   end
 end
