@@ -21,6 +21,6 @@ class FleeAction
   end
 
   def failure(target)
+    owner.damage(target.damage)
   end
-
 end

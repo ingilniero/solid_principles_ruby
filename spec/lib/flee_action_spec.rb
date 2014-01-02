@@ -37,5 +37,16 @@ describe FleeAction do
         subject.activate(monster)
       end
     end
+
+    context 'failure' do
+      before do
+        dicepool.stub(:skill_check).and_return(false)
+      end
+
+      it 'deals damage to the owner' do
+        hero.should_receive(:damage).with(monster.damage)
+        subject.activate(monster)
+      end
+    end
   end
 end
