@@ -3,8 +3,10 @@ require_relative '../../lib/hero'
 
 describe Hero do
 
+  let(:dicepool) { double('dicepool', skill_check: 3) }
+  let(:hero) { Hero.new dicepool: dicepool }
+
   describe 'default attributes' do
-    let(:hero) { Hero.new }
 
     it 'has default strength equal to "3"' do
       expect(hero.strength).to eq 3
@@ -16,7 +18,7 @@ describe Hero do
   end
 
   describe 'custom attributes' do
-    let(:hero) { Hero.new(strength: 4, health: 8) }
+    let(:hero) { Hero.new(strength: 4, health: 8, dicepool: dicepool) }
 
     it { expect(hero.strength).to eq 4}
 
@@ -27,7 +29,7 @@ describe Hero do
     let(:monster) { double('monster', toughness: 2) }
 
     context 'when the hero attacks sucessfuly' do
-      it { expect(subject.attack(monster)).to be_true }
+      it { expect(hero.attack(monster)).to be_true }
     end
   end
 end
