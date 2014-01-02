@@ -29,13 +29,13 @@ describe Hero do
     let(:monster) { double('monster', toughness: 2) }
 
     context 'when the hero attacks sucessfuly' do
-      before { dicepool.stub(:skill_check).and_return(3) }
+      before { dicepool.stub(:skill_check).and_return(true) }
 
       it { expect(hero.attack(monster)).to be_true }
     end
 
     context 'when the hero attack fails' do
-      before { dicepool.stub(:skill_check).and_return(1) }
+      before { dicepool.stub(:skill_check).and_return(false) }
 
       it { expect(hero.attack(monster)).to be_false }
     end
