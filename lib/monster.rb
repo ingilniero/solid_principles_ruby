@@ -10,4 +10,8 @@ class Monster
   def dead?
     @dead
   end
+
+  def kill
+    @dead = true
+  end
 end

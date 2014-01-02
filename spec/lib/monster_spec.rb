@@ -12,8 +12,21 @@ describe Monster do
    end
 
    describe '#dead?' do
-     it 'checks if the monster is dead' do
-       expect(monster.dead?).to be_false
+     context 'when is alive' do
+       it { expect(monster.dead?).to be_false }
+     end
+
+     context 'when is dead' do
+       before { monster.kill }
+       it { expect(monster.dead?).to be_true }
+     end
+   end
+
+   describe '#kill' do
+     before { monster.kill }
+
+     it 'kills the monster' do
+       expect(monster.dead?).to be_true
      end
    end
 end
