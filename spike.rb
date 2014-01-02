@@ -33,18 +33,23 @@ class Monster
   end
 end
 
-hero = Hero.new 10, 3
-monster = Monster.new 2, 4
+hero = Hero.new 10, 3, 2
+monster = Monster.new 2, 4, 2
 
-until hero.attack(monster) || hero.dead?
+until hero.attack(monster) || hero.dead? || hero.fled?
   puts "You missed. Monster dealt #{ monster.damage } damage"
   puts "Your current health is #{ hero.health }"
+
+  puts "Trying to flee"
+  hero.flee(monster)
 end
 
 puts "=================================="
 
 if hero.dead?
   puts "You LOST"
+elsif hero.fled?
+  puts "You COWARD"
 else
   puts "You WON"
 end
