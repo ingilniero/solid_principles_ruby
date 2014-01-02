@@ -23,14 +23,20 @@ describe Hero do
     it 'has default exp equal to "0"' do
       expect(hero.exp).to eq 0
     end
+
+    it 'has default stealth equal to "2"' do
+      expect(hero.stealth).to eq 2
+    end
   end
 
   describe 'custom attributes' do
-    let(:hero) { Hero.new(strength: 4, health: 8) }
+    let(:hero) { Hero.new(strength: 4, health: 8, stealth: 4) }
 
     it { expect(hero.strength).to eq 4}
 
     it { expect(hero.health).to eq 8 }
+
+    it { expect(hero.stealth).to eq 4 }
   end
 
   describe '#attack' do
