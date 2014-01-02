@@ -31,5 +31,11 @@ describe Hero do
     context 'when the hero attacks sucessfuly' do
       it { expect(hero.attack(monster)).to be_true }
     end
+
+    context 'when the hero attack fails' do
+      let(:dicepool) { double('dicepool', skill_check: 1 ) }
+
+      it { expect(hero.attack(monster)).to be_false }
+    end
   end
 end
