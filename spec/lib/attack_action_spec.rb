@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe AttackAction do
-  let(:hero) { double('hero', strength: 3, gain_exp: nil, gain_gold: nil) }
+  let(:hero) { double('hero', strength: 3, gain_exp: nil, gain_gold: nil, damage: nil) }
   let(:dicepool) { double('dicepool') }
-  let(:monster) { double('monster', toughness: 2, kill: nil) }
+  let(:monster) { double('monster', toughness: 2, kill: nil, damage: 3) }
 
   subject { AttackAction.new hero, dicepool }
 
@@ -45,7 +45,12 @@ describe AttackAction do
     end
 
     context 'failure' do
-      it 'demages owner'
+      before { dicepool.stub(:skill_check).and_return(false) }
+
+      it 'demages owner' do
+        hero.should_receive(:damage).with(monster.damage)
+        subject.activate(monster)
+      end
     end
   end
 end

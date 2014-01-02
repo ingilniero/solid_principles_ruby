@@ -11,6 +11,8 @@ class AttackAction
       target.kill
       owner.gain_exp
       owner.gain_gold
+    else
+      owner.damage(target.damage)
     end
   end
 end
