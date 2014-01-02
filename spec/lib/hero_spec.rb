@@ -19,6 +19,10 @@ describe Hero do
     it 'has default gold equal to "0"' do
       expect(hero.gold).to eq 0
     end
+
+    it 'has default exp equal to "0"' do
+      expect(hero.exp).to eq 0
+    end
   end
 
   describe 'custom attributes' do
