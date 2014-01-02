@@ -1,3 +1,16 @@
+class Hero
+  attr_reader :health, :strength
+
+  def initialize(health, strength)
+    @health = health
+    @strength = strength
+  end
+
+  def dead?
+    @health <= 0
+  end
+end
+
 hero = Hero.new 10, 3
 monster = Monster.new 2, 4
 
