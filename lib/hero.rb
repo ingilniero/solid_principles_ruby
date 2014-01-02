@@ -3,6 +3,6 @@ class Hero
 
   def initialize(attr = {})
     @strength = attr.fetch(:strength, 3)
-    @health = 10
+    @health = attr.fetch(:health, 10)
   end
 end
