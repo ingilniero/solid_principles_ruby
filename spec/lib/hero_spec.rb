@@ -59,11 +59,17 @@ describe Hero do
 
   describe '#gain_gold' do
     before { hero.gain_gold(10) }
-    it { expect(hero.gold).to eq 10 }
+
+    it 'increases hero\'s gold' do
+      expect(hero.gold).to eq 10
+    end
   end
 
   describe '#gain_exp' do
     before { hero.gain_exp(100) }
-    it { expect(hero.exp).to eq 100 }
+
+    it 'increases hero\'s exp ' do
+      expect(hero.exp).to eq 100
+    end
   end
 end
