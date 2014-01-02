@@ -8,7 +8,7 @@ class Hero
     @actions = attr.fetch(:actions, {})
   end
 
-  def attack(monster)
-    @dicepool.skill_check(strength, monster.toughness)
+  def activate_action(action_name, target)
+    actions[action_name].activate(target)
   end
 end

@@ -28,9 +28,15 @@ describe Hero do
   end
 
   describe '#attack' do
+    let(:monster) { double('monster') }
 
     it 'has attack action' do
       expect(hero.actions[:attack]).to eq(attack_action)
+    end
+
+    it 'actives attack action' do
+      attack_action.should_receive(:activate)
+      hero.activate_action(:attack, monster)
     end
   end
 end
