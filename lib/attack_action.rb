@@ -7,6 +7,8 @@ class AttackAction
   end
 
   def activate(target)
-    dicepool.skill_check(owner.strength, target.toughness)
+    if dicepool.skill_check(owner.strength, target.toughness)
+      target.kill
+    end
   end
 end

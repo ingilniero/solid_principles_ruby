@@ -21,4 +21,24 @@ describe AttackAction do
       subject.activate(monster)
     end
   end
+
+  describe 'effect' do
+    context 'success' do
+      before do
+        dicepool.stub(:skill_check).and_return(true)
+      end
+
+      it 'kills monster' do
+        monster.should_receive(:kill)
+        subject.activate(monster)
+      end
+
+      it 'rewards owner with exp'
+      it 'rewards owner with gold'
+    end
+
+    context 'failure' do
+      it 'demages owner'
+    end
+  end
 end
