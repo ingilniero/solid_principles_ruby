@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../../lib/hero'
 
 describe Hero do
 
