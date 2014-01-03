@@ -9,6 +9,11 @@ class Hero
     @gold     = 0
     @exp      = 0
     @fled     = false
+    own_actions
+  end
+
+  def own_actions
+    @actions.each_value { |action| action.assign_owner self }
   end
 
   def activate_action(action_name, target)

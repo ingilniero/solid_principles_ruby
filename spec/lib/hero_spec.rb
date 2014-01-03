@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Hero do
 
-  let(:attack_action) { double('attack') }
+  let(:attack_action) { double('attack', assign_owner: nil) }
   let(:actions) { { attack: attack_action } }
   let(:hero) { Hero.new actions: actions }
 
@@ -94,6 +94,14 @@ describe Hero do
 
     context 'hen the hero doesn\'t flee' do
       it { expect(hero.fled?).to be_false }
+    end
+  end
+
+  describe '#own_actions' do
+    before { attack_action.should_receive(:assign_owner) }
+
+    it 'sends assign_owner message to each action' do
+      hero
     end
   end
 end
