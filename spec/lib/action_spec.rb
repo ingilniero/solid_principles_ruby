@@ -47,4 +47,12 @@ describe Actionable do
       end
     end
   end
+
+  describe '#assign_owner' do
+    before { subject.assign_owner(hero) }
+
+    it 'assings its owner' do
+      expect(subject.owner).to eq hero
+    end
+  end
 end
