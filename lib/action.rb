@@ -20,8 +20,6 @@ class Action
     end
   end
 
-  private
-
   def success(target)
   end
 
