@@ -9,19 +9,12 @@ describe AttackAction do
 
   it_behaves_like 'action'
 
-  it 'responds to activate message' do
-    expect(subject).to respond_to(:activate)
+  it 'has strength attribute' do
+    expect(subject.attribute).to eq (:strength)
   end
 
-  it 'has an owner' do
-    expect(subject.owner).to eq(hero)
-  end
-
-  describe '#activate' do
-    it 'makes strength check against target toughbess' do
-      dicepool.should_receive(:skill_check).with(hero.strength, monster.toughness)
-      subject.activate(monster)
-    end
+  it 'has toughness for difficulty' do
+    expect(subject.difficulty).to eq (:toughness)
   end
 
   describe 'effect' do
