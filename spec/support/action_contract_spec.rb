@@ -1,4 +1,4 @@
-shared_examples 'action' do
+shared_examples 'actionable' do
   it { expect(subject).to respond_to(:action_attributes) }
   it { expect(subject).to respond_to(:success) }
   it { expect(subject).to respond_to(:failure) }

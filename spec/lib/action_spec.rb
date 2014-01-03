@@ -1,22 +1,27 @@
 require 'spec_helper'
 
-class TestAction < Action
+class TestAction
+  include Actionable
   def action_attributes
     @attribute  = :strength
     @difficulty = :toughness
   end
 end
 
-describe Action do
+class AnotherAction
+  include Actionable
+end
+
+describe Actionable do
   let(:hero) { double('hero', strength: 3, gain_xp: nil, gain_gold: nil, damage: nil) }
   let(:dicepool) { double('dicepool', skill_check: nil) }
   let(:monster) { double('monster', toughness: 2, kill: nil, damage: 4) }
   subject { TestAction.new hero, dicepool }
 
-  it_behaves_like 'action'
+  it_behaves_like 'actionable'
 
   it 'requires action attributes to be implementd' do
-    expect { Action.new hero, dicepool }.to raise_exception
+    expect { AnotherAction.new hero, dicepool }.to raise_exception
   end
 
   describe '#activate' do

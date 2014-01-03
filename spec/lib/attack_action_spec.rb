@@ -7,7 +7,7 @@ describe AttackAction do
 
   subject { AttackAction.new hero, dicepool }
 
-  it_behaves_like 'action'
+  it_behaves_like 'actionable'
 
   it 'has strength attribute' do
     expect(subject.attribute).to eq (:strength)

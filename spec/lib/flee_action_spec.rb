@@ -11,7 +11,7 @@ describe FleeAction do
 
   subject { FleeAction.new hero, dicepool }
 
-  it_behaves_like 'action'
+  it_behaves_like 'actionable'
 
   it 'has stealth attribute' do
     expect(subject.attribute).to eq :stealth

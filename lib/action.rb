@@ -1,4 +1,4 @@
-class Action
+module Actionable
   attr_reader :owner, :dicepool, :attribute, :difficulty
 
   def initialize(owner, dicepool)
