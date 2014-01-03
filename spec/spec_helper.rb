@@ -4,6 +4,7 @@ require_relative '../lib/dicepool'
 require_relative '../lib/monster'
 require_relative '../lib/flee_action'
 require_relative '../lib/action'
+require_relative '../lib/black_king_bar'
 
 Dir['./spec/support/**/*.rb'].sort.each { |file| require file }
 
