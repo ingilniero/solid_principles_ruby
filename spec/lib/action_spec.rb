@@ -39,7 +39,7 @@ describe Actionable do
     end
 
     context 'when skill_check returns false' do
-      before { dicepool.stub(:skill_checj).and_return(false) }
+      before { dicepool.stub(:skill_check).and_return(false) }
 
       it 'sends failure message' do
         subject.should_receive(:failure)
