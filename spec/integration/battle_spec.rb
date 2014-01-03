@@ -40,5 +40,16 @@ describe 'Battle' do
       end
     end
 
+    context 'when the attack fails' do
+      before :each do
+        Dicepool.any_instance.stub(:roll_die).and_return(2)
+        hero.activate_action :attack, monster
+      end
+
+      it 'takes damage' do
+        expect(hero.health).to eq 6
+      end
+    end
+
   end
 end
