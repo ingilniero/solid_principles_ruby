@@ -5,8 +5,6 @@ class Dicepool
     dice.count { |die| die > 4 } >= difficulty
   end
 
-  private
-
   def roll_die
     1 + rand(6)
   end

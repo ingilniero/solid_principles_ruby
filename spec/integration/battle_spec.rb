@@ -20,13 +20,25 @@ describe 'Battle' do
   let(:dicepool) { Dicepool.new }
 
   describe 'Hero attacks monster' do
-    before { hero.activate_action :attack, monster }
 
-    it 'kills monster' do
-      expect(monster).to be_dead
+    context 'when the attack is succesful' do
+      before :each do
+        Dicepool.any_instance.stub(:roll_die).and_return(5)
+        hero.activate_action :attack, monster
+      end
+
+      it 'kills monster' do
+        expect(monster).to be_dead
+      end
+
+      it 'gets monster\'s gold' do
+        expect(hero.gold).to eq 20
+      end
+
+      it 'gets experience' do
+        expect(hero.exp).to eq 10
+      end
     end
 
-    it 'gets monster\'s gold'
-    it 'gets experience'
   end
 end
