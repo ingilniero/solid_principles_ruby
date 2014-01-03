@@ -63,5 +63,16 @@ describe 'Battle' do
         expect(hero.fled?).to be_true
       end
     end
+
+    context 'when the flee attempt fails' do
+      before do
+        Dicepool.any_instance.stub(:roll_die).and_return(2)
+        hero.activate_action :flee, monster
+      end
+
+      it 'taked damage' do
+        expect(hero.health).to eq 6
+      end
+    end
   end
 end
