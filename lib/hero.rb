@@ -43,4 +43,8 @@ class Hero
   def dead?
     health <= 0
   end
+
+  def reset_flee
+    @fled = false
+  end
 end

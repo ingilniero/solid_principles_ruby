@@ -116,4 +116,14 @@ describe Hero do
       it { expect(hero.dead?).to be_true }
     end
   end
+
+  describe '#reset_flee' do
+    before do
+      hero.flee
+      hero.reset_flee
+    end
+    it 'sets fled state to false' do
+      expect(hero.fled?).to be_false
+    end
+  end
 end
