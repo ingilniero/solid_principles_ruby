@@ -11,19 +11,14 @@ describe FleeAction do
 
   subject { FleeAction.new hero, dicepool }
 
-  it 'responds to activate message' do
-    expect(subject).to respond_to(:activate)
+  it_behaves_like 'action'
+
+  it 'has stealth attribute' do
+    expect(subject.attribute).to eq :stealth
   end
 
-  it 'has an owner' do
-    expect(subject.owner).to eq(hero)
-  end
-
-  describe '#activate' do
-    it 'makes stealth check against target notice' do
-      dicepool.should_receive(:skill_check).with(hero.stealth, monster.notice)
-      subject.activate(monster)
-    end
+  it 'has notice for difficulty' do
+    expect(subject.difficulty).to eq :notice
   end
 
   describe 'effect' do
