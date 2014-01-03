@@ -7,8 +7,6 @@ class AttackAction < Action
     @difficulty = :toughness
   end
 
-  private
-
   def success(target)
     target.kill
     owner.gain_exp

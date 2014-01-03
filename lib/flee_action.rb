@@ -7,8 +7,6 @@ class FleeAction < Action
     @difficulty = :notice
   end
 
-  private
-
   def success(target)
     owner.flee
   end

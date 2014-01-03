@@ -4,6 +4,8 @@ require_relative '../lib/dicepool'
 require_relative '../lib/monster'
 require_relative '../lib/flee_action'
 
+Dir['./spec/support/**/*.rb'].sort.each { |file| require file }
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true

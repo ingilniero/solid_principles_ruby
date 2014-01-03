@@ -7,6 +7,8 @@ describe AttackAction do
 
   subject { AttackAction.new hero, dicepool }
 
+  it_behaves_like 'action'
+
   it 'responds to activate message' do
     expect(subject).to respond_to(:activate)
   end
