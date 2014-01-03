@@ -5,7 +5,7 @@ describe AttackAction do
   let(:dicepool) { double('dicepool') }
   let(:monster) { double('monster', toughness: 2, kill: nil, damage: 3) }
 
-  subject { AttackAction.new hero, dicepool }
+  subject { AttackAction.new hero }
 
   it_behaves_like 'actionable'
 
@@ -18,10 +18,10 @@ describe AttackAction do
   end
 
   describe 'effect' do
+    before { Dicepool.stub(:new).and_return(dicepool) }
+
     context 'success' do
-      before do
-        dicepool.stub(:skill_check).and_return(true)
-      end
+      before { dicepool.stub(:skill_check).and_return(true) }
 
       it 'kills monster' do
         monster.should_receive(:kill)
