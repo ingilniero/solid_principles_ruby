@@ -15,6 +15,14 @@ describe Monster do
      expect(monster.notice).to eq 2
    end
 
+   it 'has exp to give when it dies' do
+     expect(monster.exp).to eq 10
+   end
+
+   it 'has gold to give when it dies' do
+     expect(monster.gold).to eq 2
+   end
+
    describe '#dead?' do
      context 'when is alive' do
        it { expect(monster.dead?).to be_false }

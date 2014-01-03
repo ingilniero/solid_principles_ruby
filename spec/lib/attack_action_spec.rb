@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AttackAction do
   let(:hero) { double('hero', strength: 3, gain_exp: nil, gain_gold: nil, damage: nil) }
   let(:dicepool) { double('dicepool') }
-  let(:monster) { double('monster', toughness: 2, kill: nil, damage: 3) }
+  let(:monster) { double('monster', toughness: 2, kill: nil, damage: 3, gold: 2, exp: 10) }
 
   subject { AttackAction.new hero }
 
