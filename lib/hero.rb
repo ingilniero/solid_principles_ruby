@@ -39,4 +39,8 @@ class Hero
   def fled?
     @fled
   end
+
+  def dead?
+    health <= 0
+  end
 end

@@ -104,4 +104,16 @@ describe Hero do
       hero
     end
   end
+
+  describe '#dead?' do
+    context 'when hero is alive' do
+      it { expect(hero.dead?).to be_false }
+    end
+
+    context 'when hero is dead' do
+      before { hero.damage(20) }
+
+      it { expect(hero.dead?).to be_true }
+    end
+  end
 end
